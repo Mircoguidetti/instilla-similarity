@@ -1,18 +1,21 @@
-const axios = require('axios');
-const cheerio = require('cheerio');
+const axios = require('axios')
+    , cheerio = require('cheerio');
 
-let handleAxiosRequest = (firstUrl, secondUrl) => {
+module.exports = (firstUrl, secondUrl) => {
   return new Promise((resolve, reject) => {
   let urlLinks = {
-    firstUrl: [],
-    secondUrl: []
+    firstLinks: [],
+    secondLinks: []
   }
+
+  urlLinks.firstLinks.push(firstUrl)
+  urlLinks.secondLinks.push(secondUrl)
   return axios.get(firstUrl).then((response) => {
   let $ = cheerio.load(response.data);
   $('a').each(function() {
     let link = $(this).attr('href');
     if(link && link.includes(firstUrl)) {
-      urlLinks.firstUrl.push(link);
+      urlLinks.firstLinks.push(link);
     }
 
   });
@@ -22,9 +25,10 @@ let handleAxiosRequest = (firstUrl, secondUrl) => {
   $('a').each(function() {
     let link = $(this).attr('href')
     if(link && link.includes(secondUrl)) {
-      urlLinks.secondUrl.push(link);
+      urlLinks.secondLinks.push(link);
     }
   });
+
   return resolve(urlLinks)
 }).catch((error) => {
   console.log(error)
@@ -32,5 +36,3 @@ let handleAxiosRequest = (firstUrl, secondUrl) => {
 });
 });
 }
-
-module.exports = { handleAxiosRequest };

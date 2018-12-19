@@ -1,7 +1,8 @@
-const express = require('express');
-const app = express();
-const path = require('path');
-const bodyParser = require('body-parser');
+const express = require('express')
+    , app = express()
+    , path = require('path')
+    , bodyParser = require('body-parser');
+
 
 // Require routes
 const indexRoutes = require('./routes/index');
@@ -20,6 +21,8 @@ app.use(express.static(publicPath));
 
 // Config server to handle routes
 app.use(indexRoutes)
+
+
 
 // Run the Server
 app.listen(port, () => {

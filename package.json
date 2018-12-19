@@ -1,5 +1,5 @@
 {
-  "name": "instilla-test",
+  "name": "instilla-similarity",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -14,6 +14,8 @@
     "body-parser": "^1.18.3",
     "cheerio": "^1.0.0-rc.2",
     "express": "^4.16.4",
-    "similarity": "^1.1.1"
+    "express-csv": "^0.6.0",
+    "similarity": "^1.1.1",
+    "valid-url": "^1.0.9"
   }
 }
