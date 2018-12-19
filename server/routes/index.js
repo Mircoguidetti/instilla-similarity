@@ -21,8 +21,7 @@ router.post('/', (req, res) => {
 
   if (validUrl.isUri(body.urlOne) && validUrl.isUri(body.urlTwo)){
     http(body.urlOne, body.urlTwo).then((data) => {
-      let mostSimilarLink = findAndCompare(data)
-      console.log(mostSimilarLink)
+      let mostSimilarLink = findAndCompare(data, body.urlOne, body.urlTwo)
       res.csv(mostSimilarLink);
     }).catch((error) => {
       return error
