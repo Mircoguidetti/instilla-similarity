@@ -1,4 +1,4 @@
-# Instilla Similarity
+# URL Similarity
 
 ## Get started
 
@@ -7,13 +7,13 @@
 Clone the repository with the following command:
 
 ```    
-> git clone git@github.com:Mircoguidetti/instilla-similarity.git
+> git clone git@github.com:Mircoguidetti/url-similarity.git
 ```
 
 Next, navigate into the downloaded folder and install the dependencies:
 
 ```
-> cd instilla-similarity
+> cd url-similarity
 > npm install
 ```
 
